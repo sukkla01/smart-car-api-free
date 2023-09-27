@@ -1,0 +1,32 @@
+
+const request = require('request');
+
+
+exports.test1 = async (req, res, next) => {
+
+    try {
+        request({
+            method: 'POST',
+            uri: "https://notify-api.line.me/api/notify",
+            header: {
+                'Content-Type': 'multipart/form-data',
+            },
+            auth: {
+                // bearer: 'IKkZApKR1VORzCGshGzEonB3YHRQif7Vy0IFm8BBrqU',
+                bearer: 'MRurs4toof6JPhmHaCB6NaD1xr92bvNsJBLkh0T7dOF',
+            },
+            form: {
+                message: `test11`
+            },
+        }, (err, httpResponse, body) => {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log(body)
+            }
+        });
+
+    } catch (error) {
+        console.log(error)
+    }
+};
